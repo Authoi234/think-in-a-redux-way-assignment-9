@@ -12,7 +12,7 @@ export const tasksApi = apiSlice.injectEndpoints({
             query: ({id, data}) => ({
                 url: `/tasks/${id}`,
                 method: "PATCH",
-                body: data,
+                body: data
             })
         })
     })
