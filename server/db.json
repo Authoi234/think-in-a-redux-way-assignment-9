@@ -98,7 +98,8 @@
         "colorClass": "color-flight"
       },
       "deadline": "2023-03-23",
-      "id": 2
+      "id": 2,
+      "status": "completed"
     },
     {
       "taskName": "Task Three",
@@ -113,7 +114,8 @@
         "colorClass": "color-productCart"
       },
       "deadline": "2023-03-03",
-      "id": 3
+      "id": 3,
+      "status": "inProgress"
     },
     {
       "taskName": "New Task",
@@ -128,7 +130,8 @@
         "colorClass": "color-scoreboard"
       },
       "deadline": "2023-03-11",
-      "id": 4
+      "id": 4,
+      "status": "inProgress"
     },
     {
       "taskName": "Fix a bug",
@@ -144,7 +147,7 @@
         "colorClass": "color-bookstore"
       },
       "id": 5,
-      "status": "completed"
+      "status": "pending"
     }
   ]
 }
