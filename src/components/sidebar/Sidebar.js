@@ -5,8 +5,8 @@ import { useGetProjectsQuery } from '../../features/Projects/projectsApi';
 import { useGetTeamQuery } from '../../features/team/teamApi';
 
 const Sidebar = () => {
-    const { data: projects, isLoading: isProjectsLoading, isError: isProjectsError, error: projectsError } = useGetProjectsQuery() || {};
-    const {data: team, isLoading: isTeamLoading, isError: isTeamError, error: teamError} = useGetTeamQuery() || {};
+    const { data: projects, isLoading: isProjectsLoading, isError: isProjectsError } = useGetProjectsQuery() || {};
+    const {data: team, isLoading: isTeamLoading, isError: isTeamError} = useGetTeamQuery() || {};
 
     return (
         <div className="sidebar">

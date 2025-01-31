@@ -57,8 +57,26 @@ export const tasksApi = apiSlice.injectEndpoints({
                     pathResult.undo();
                 }
             }
+        }),
+        addTask: builder.mutation({
+            query: (data) => ({
+                url: `/tasks/`,
+                method: "POST",
+                body: data,
+            }),
+            async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+                try {
+                    const { data: newTask } = await queryFulfilled; 
+                    dispatch(
+                        apiSlice.util.updateQueryData("getTasks", undefined, (draft) => {
+                            draft.push(newTask);
+                        })
+                    );
+                } catch (err) {
+                }
+            }
         })
     })
 })
 
-export const { useGetTaskQuery, useGetTasksQuery, useUpdateTaskMutation, useDeleteTaskMutation } = tasksApi;
+export const { useGetTaskQuery, useAddTaskMutation, useGetTasksQuery, useUpdateTaskMutation, useDeleteTaskMutation } = tasksApi;

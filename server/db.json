@@ -83,7 +83,7 @@
       },
       "deadline": "2023-03-15",
       "id": 1,
-      "status": "inProgress"
+      "status": "pending"
     },
     {
       "taskName": "Task Two",
@@ -115,7 +115,7 @@
       },
       "deadline": "2023-03-03",
       "id": 3,
-      "status": "inProgress"
+      "status": "completed"
     },
     {
       "taskName": "New Task",
@@ -148,6 +148,38 @@
       },
       "id": 5,
       "status": "pending"
+    },
+    {
+      "taskName": "ghum haram koira demo, fix anything",
+      "teamMember": {
+        "name": "Saad Hasan",
+        "avatar": "/images/avatars/sadh.png",
+        "id": 2
+      },
+      "deadline": "2025-03-18",
+      "project": {
+        "id": 5,
+        "projectName": "Blog Application",
+        "colorClass": "color-blog"
+      },
+      "status": "inProgress",
+      "id": 6
+    },
+    {
+      "taskName": "fix anything",
+      "teamMember": {
+        "name": "Ferdous Hassan",
+        "avatar": "/images/avatars/ferdous.png",
+        "id": 6
+      },
+      "deadline": "2025-02-01",
+      "project": {
+        "id": 6,
+        "projectName": "Job Finder",
+        "colorClass": "color-jobFinder"
+      },
+      "status": "pending",
+      "id": 7
     }
   ]
 }
