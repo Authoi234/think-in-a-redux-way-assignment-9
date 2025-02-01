@@ -7,6 +7,7 @@ import Home from './Pages/Home';
 import AddNew from './Pages/AddNew';
 import { changeSearchText } from './features/fiterSlice/filterSlice';
 import { useDispatch } from 'react-redux';
+import EditTask from './Pages/EditTask';
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>} />
         <Route path='/task/add' element={<AddNew></AddNew>} />
+        <Route path='/task/edit/:id' element={<EditTask></EditTask>} />
       </Routes>
     </BrowserRouter>
   );

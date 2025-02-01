@@ -3,10 +3,12 @@ import { apiSlice } from "../api/apiSlice";
 export const tasksApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getTasks: builder.query({
-            query: () => `/tasks`
+            query: () => `/tasks`,
+            providesTags: ["tasks"]
         }),
         getTask: builder.query({
-            query: (id) => `/tasks/${id}`
+            query: (id) => `/tasks/${id}`,
+            providesTags: (result, error, id) => [{ type: "task", id }],
         }),
         updateTask: builder.mutation({
             query: ({ id, data }) => ({
@@ -27,14 +29,19 @@ export const tasksApi = apiSlice.injectEndpoints({
                                 const draftTask = draft.find((t) => t?.id == updatedTask?.id);
                                 if (draftTask) {
                                     Object.assign(draftTask, updatedTask); // Merge the updated task
-                                }
+                                };
+
                             }
                         )
                     );
                 } catch (err) {
 
                 }
-            }
+            },
+            invalidatesTags: (result, error, { id }) => [
+                "tasks",           // Refresh task list
+                { type: "task", id } // Refresh the specific task
+            ],
         }),
         deleteTask: builder.mutation({
             query: (id) => ({
@@ -66,7 +73,7 @@ export const tasksApi = apiSlice.injectEndpoints({
             }),
             async onQueryStarted(arg, { queryFulfilled, dispatch }) {
                 try {
-                    const { data: newTask } = await queryFulfilled; 
+                    const { data: newTask } = await queryFulfilled;
                     dispatch(
                         apiSlice.util.updateQueryData("getTasks", undefined, (draft) => {
                             draft.push(newTask);
